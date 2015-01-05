@@ -7,6 +7,8 @@
 <body>
     <h1>Twittor</h1>
     {{> TweetsGeneral}}
+    <!-- 2.2 Ajouter le template du form a la vue principale-->
+    {{> formAddTweet}}
 </body>
 
 <template name="TweetsGeneral">
@@ -15,4 +17,29 @@
       {{> tweet}}
     {{/each}}
   </ol>
+</template>
+
+<!--
+  1.1
+  Creer un template qui affiche un tweet
+  composer d'un login et d'un tweet
+-->
+<template name="tweet">
+  <li>
+    <strong>{{login}}</strong>
+    {{post}}
+  </li>
+</template>
+
+<!-- 
+  2.1
+  Creer un template qui affiche un formulaire
+  avec un input pour le login et un autre pour le tweet
+-->
+<template name="formAddTweet">
+  <form class="formAddTweet">
+    Name: <input type="text" name="login"/>
+    Tweet: <input type="textarea" name="post"/>
+    <input type="submit"/>
+  </form>
 </template>

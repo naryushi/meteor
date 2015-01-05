@@ -1,2 +1,4 @@
-insecure
 meteor-platform
+iron:router
+accounts-password
+accounts-ui

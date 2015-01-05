@@ -1,44 +1,71 @@
 /*
-  1.1
-  Creer un template qui affiche un tweet
-  composer d'un login et d'un tweet
+  Routage
+  Ajouter le package iron:routert' 
+  Regrouper vos appels des templates des tweets et de votre 
+  formulaire dans un seul template appelez le 'home' par exemple
 */
 /*
-  1.2
-  Creer le helpers contenant un fonction tweets
-  qui retourne tout les tweets de la collection Tweets
+  4.1
+  Remplacer les balises body par <template name="layout">
 */
 /*
-  2.1
-  Creer un template qui affiche un formulaire
-  avec un input pour le login et un autre pour le tweet
+  4.2
+  Puis configurer votre router pour qu'il appele toujours le template 'layout'
+  Router.configure({layoutTemplate: "layout});
 */
 /*
-  2.2
-  Ajouter le template du form a la vue principale
+  4.3
+  Creer un nouveau template home qui contient l'appel au template des tweet general
+  ainsi qu'un autre template submit qui contient le formulaire d'ajout
 */
 /*
-  2.3
-  Creer l'event pour l'ajout d'un tweet dans la collection
+  4.4
+  Dans le template layout vous n'avez donc plus que le titre, ajouter l'appelle au template {{> yield}}
+  qui vous appelera par magie le template voulu 
 */
 /*
-  Supprimer le package autopublish.
-  Vous ne pouvez plus recevoir les tweets.
-  Le package autopublish partage chaque collection dans sa totalité
-  à chaque client connecté ce qui n'est pas top dans une application en production
+  4.5
+  Creer la route principale pour qu'elle charge le template home
+  ainsi qu'une autre route submit qui appelle submit
 */
 /*
-  3.1
-  Depuis le serveur publier la collection Tweets
-  mais seulement ceux valide
+  4.6
+  Vous pouvez maintenant creer un lien vers submit {{pathFor 'submit'}}
 */
 /*
-  3.2
-  Depuis le client souscriver à la publication
+  Ajout de connexion utilisateur
+  Ajouter les packages accounts-password & account-ui
 */
 /*
-  Maintenant seul les tweet valide sont accessible
-  Meme depuis la console client il est impossible
-  de voir la totalité des posts
-  Mais il est toujours possible d'en envoyer (meme si vous ne le voyer pas) 
+  5.1
+  Ajouter le boutton de login {{> LoginButtons}} dans le home
+*/
+/*
+  5.2
+  Enlever le package insecure. Le client ne peux plus inserer de tweet.
+  Par le formulaire ou la console.
+  N'autoriser l'insertion de tweet que si l'utilisateur est logguer.
+  Grâce à cette autorisation l'utlisateur peux réutiliser la fonction insert.
+*/
+/*
+  5.3
+  Enlever le nom du formulaire d'ajout d'un tweet
+  Ajouter l'email de la personne connecté directement dans le tweet
+  Vous pouvez aussi a present valider le tweet pour l'afficher dans la list
+*/
+/*
+  6.1
+  Parce qu'on fait les choses proprement deplacer l'insertion
+  de tweet dans le serveur grâce aux methodes
+*/
+/*
+  6.2
+  Remplacer l'insert coté client par l'appel de cette methode
+*/
+
+/*
+  Vous maitrisez maintenant tous les fondements de meteor et profitez de la
+  facilité de ce framework pour réaliser toutes vos idées.
+  Il y a encore de nombreuses précision dans les méthodes presenté.
+  N'hesitez pas à allez voir la documentation pour voir la force de meteor.
 */

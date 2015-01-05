@@ -4,12 +4,23 @@
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
+<!-- 4.1 et 4.4 -->
+<template name="layout">
     <h1>Twittor</h1>
+    {{> yield}}
+</template>
+
+<!-- 4.3 -->
+<template name="home">
+    <!-- 5.1 --> {{> loginButtons}}
     {{> TweetsGeneral}}
-    <!-- 2.2 Ajouter le template du form a la vue principale-->
-    {{> formAddTweet}}
-</body>
+    <!-- 4.6 --> <a href="{{pathFor 'submit'}}">Ajouter un post</a>
+</template>
+
+<template name="submit">
+  {{> formAddTweet}}
+</template>
+
 
 <template name="TweetsGeneral">
   <ol>
@@ -19,11 +30,6 @@
   </ol>
 </template>
 
-<!--
-  1.1
-  Creer un template qui affiche un tweet
-  composer d'un login et d'un tweet
--->
 <template name="tweet">
   <li>
     <strong>{{login}}</strong>
@@ -31,14 +37,9 @@
   </li>
 </template>
 
-<!-- 
-  2.1
-  Creer un template qui affiche un formulaire
-  avec un input pour le login et un autre pour le tweet
--->
+<!-- 5.3 -->
 <template name="formAddTweet">
   <form class="formAddTweet">
-    Name: <input type="text" name="login"/>
     Tweet: <input type="textarea" name="post"/>
     <input type="submit"/>
   </form>

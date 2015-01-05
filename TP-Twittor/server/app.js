@@ -16,9 +16,15 @@ Meteor.startup(function () {
   }
 });
 
-/*
-  3.1 Depuis le serveur publier la collection Tweets
-*/
+
 Meteor.publish('Tweets', function() {
-  return Tweets.find({valide: true});
+  return Tweets.find();
 });
+
+//6.1
+Meteor.methods({
+  insertTweet: function(tweet) {
+    return Tweets.insert(tweet);
+  }
+});
+

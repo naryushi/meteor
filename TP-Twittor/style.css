@@ -1,0 +1,154 @@
+/*
+  Le tutorial ainsi que la documentation de meteor vous seront tres utiles.
+  La longueur des choses demandées pour chaque question est en moyenne de 3 lignes
+  et le TP sera complet en 100 lignes tous fichiers confondus.
+  De ce fait il n'y aura presque aucune aide et le cours et la
+  documentation seront vos seules aide.
+  N'hesitez pas a demander de l'aide si vous ne trouvez pas ce que vous cherchez !
+*/
+
+
+/*
+  -- Templates & Helpers --
+*/
+/*
+  1.1
+  Creer un template 'tweet' qui affiche un tweet
+  compose d'un 'login' et d'un 'post'
+*/
+/*
+  1.2
+  Creer le helper de 'TweetsGeneral' contenant une fonction 'tweets'
+  qui retourne tous les tweets de la collection 'Tweets' (voir ORM)
+*/
+/*
+  2.1
+  Creer un template 'formAddTweet' qui affiche un formulaire de classe 'formAddTweet'
+  pour un tweet avec un input pour le 'login', un autre pour le 'post' et enfin
+  unpour le 'submit'
+*/
+/*
+  2.2
+  Ajouter le template 'formAddTweet' du form a la vue principale
+*/
+/*
+  2.3
+  Creer pour le template 'formAddTweet' l'event 'submit' (ciblant la classe 'formAddTweet')
+  pour l'ajout d'un tweet dans la collection (ne pas mettre le champ valide dans le tweet ou le mettre à false pour la suite du tp)
+*/
+
+
+/*
+  Supprimer le package autopublish.
+  Vous ne pouvez plus recevoir les tweets.
+  Le package autopublish partage chaque collection dans sa totalité
+  à chaque client connecté ce qui n'est pas top dans une application en production
+*/
+/*
+  3.1
+  Depuis le serveur publier la collection Tweets, mais seulement ceux valides
+*/
+/*
+  3.2
+  Depuis le client souscrire a la publication
+*/
+/*
+  Maintenant seuls les tweets valides sont accessibles
+  Meme depuis la console client il est impossible
+  de voir la totalité des posts
+  Mais il est toujours possible d'en envoyer (meme si vous ne le voyez pas) 
+*/
+
+
+/*
+  -- Routage --
+  Ajouter le package 'iron:routert' 
+  Regrouper vos appels des templates des tweets et de votre 
+  formulaire dans un seul template (appelez le 'home' par exemple)
+*/
+/*
+  4.1
+  Remplacer les balises body par <template name="layout">
+*/
+/*
+  4.2
+  Puis configurer votre router pour qu'il appelle toujours le template 'layout'
+  Router.configure({layoutTemplate: "layout"});
+*/
+/*
+  4.3
+  Creer un nouveau template home qui contient l'appel au template des tweet general
+  ainsi qu'un autre template submit qui contient le formulaire d'ajout
+*/
+/*
+  4.4
+  Dans le template layout vous n'avez donc plus que le titre
+  Ajouter l'appel au template '{{> yield}}' qui appellera par magie le template voulu 
+*/
+/*
+  4.5
+  Creer la route principale pour qu'elle charge le template 'home'
+  ainsi qu'une autre route 'submit' qui appelle submit
+*/
+/*
+  4.6
+  Vous pouvez maintenant creer un lien vers submit '{{pathFor 'submit'}}'
+*/
+/*
+  -- Ajout de connexion utilisateur --
+  Ajouter les packages 'accounts-password' & 'account-ui'
+*/
+/*
+  5.1
+  Ajouter le boutton de login '{{> LoginButtons}}' dans le 'home'
+*/
+
+
+/*
+  5.2
+  Enlever le package 'insecure'. Le client ne peux plus inserer de tweet.
+  Par le formulaire ou la console.
+  N'autoriser l'insertion de tweet que si l'utilisateur est logue. ('!!userId')
+  Grace a cette autorisation l'utlisateur peut reutiliser la fonction 'insert'.
+*/
+/*
+  5.3
+  Enlever le nom du formulaire d'ajout d'un tweet
+  Ajouter l'email de la personne connecté directement dans le tweet
+  (loguer l'objet 'user' pour voir comment le recuperer)
+  Vous pouvez aussi a present valider le tweet pour l'afficher dans la liste.
+*/
+/*
+  6.1
+  Parce qu'on fait les choses proprement, deplacer l'insertion
+  de tweet dans le serveur grâce aux methodes
+*/
+/*
+  6.2
+  Remplacer l'insert coté client par l'appel de cette methode
+*/
+
+
+/*
+  +
+  vous n'avez gere que la securité au niveau de l'insert
+  gerer l'update et le delete !
+*/
+
+
+/*
+  Vous maitrisez maintenant tous les fondements de meteor et profitez de la
+  facilite d'utilisation de ce framework pour realiser toutes vos idees.
+  Il y a encore de nombreuses possibilite avec les methodes presentees.
+  N'hesitez pas a aller voir la documentation pour sentir la force de meteor.
+  Vous avez vu :
+  - les bases de la syntaxe de meteor et handlebar( {{ }} )
+  - la restriction des donnees recu par le client
+  - le routage
+  - le systeme de login
+  - la securite
+  - la deportation des methodes sensibles
+  
+  Tout ca en moins de 150 lignes de code (HTML inclus) avec a l'arrivee
+  un twitter basic mais reactif... efficace !
+*/
